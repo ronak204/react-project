@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body style="background-color: aqua;">
+
+    <h1>Basic Calculator</h1>
+
+    <!-- Input fields for the calculator -->
+    <input type="number" id="num1" placeholder="First Number">
+    <input type="number" id="num2" placeholder="Second Number">
+    
+    <!-- Buttons for each operation -->
+    <div>
+        <button onclick="calculate('+')">+</button>
+        <button onclick="calculate('-')">-</button>
+        <button onclick="calculate('*')">×</button>
+        <button onclick="calculate('/')">÷</button>
+    </div>
+
+    <!-- Area to display the result -->
+    <h2>calculate Result: <span id="result">0</span></h2>
+
+    <script>
+        function calculate(operation) {
+            // Get the values from the input fields
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            let result = 0;
+
+            // Perform the operation based on the input
+            switch(operation) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = "Invalid Operation";
+            }
+
+            // Display the result
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+
+</body>
+</html>
